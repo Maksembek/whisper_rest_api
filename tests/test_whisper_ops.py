@@ -13,3 +13,15 @@ class TestTranscribeToText:
             res = transcribe_to_text(f)
 
         assert res == " Камесыт не будешь, Мать-дество говорил о мне, хотя нарисовой бумаге вполне."
+
+    def test_clean_mp3(self):
+        with open('./mp3_samples/Clean.mp3', 'r') as f:
+            res = transcribe_to_text(f)
+
+        assert res == "Audio is emtpy"
+
+    def test_broken_mp3(self):
+        with open('./mp3_samples/Broken.mp3', 'r') as f:
+            res = transcribe_to_text(f)
+
+        assert res == "Found error in work with wisper"
